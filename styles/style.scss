@@ -1,0 +1,165 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}    
+
+header, footer {
+    height: 30px;
+}
+
+main {
+    flex: 1 1;
+    padding: 10px;
+    background: rgb(234, 234, 234);
+    display: flex;
+    flex-direction: column;
+}
+
+
+.dialog {
+    flex: 1 1 100px;
+    width: 600px;
+    padding: 10px 20px;
+    margin: 0 auto;
+    background: white;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input {
+    width: 600px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    gap: 10px;
+
+    &__text {
+        flex-grow: 1;
+        border: none;
+        display: block;
+        height: 20px;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &__button {
+        width: 80px;
+        height: 20px;
+        background: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    &__cards {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-grow: 1;
+        background: white;
+        height: 20px;
+    }
+
+    &__card {
+        border: 1px solid rgb(196, 16, 157);
+        color: rgb(196, 16, 157);
+        border-radius: 5px;
+        background: white;
+        cursor: pointer;
+
+        &:hover {
+            color: white;
+            background-color: rgb(196, 16, 157);
+        }
+    }
+
+    // модификаторы
+    &_text {
+        background-color: rgb(207, 214, 221);
+    }
+
+    &_cards {
+        background-color: white;
+    }
+}
+
+.results {
+    width: 600px;
+    margin: 0 auto;
+    height: 100%;
+    background: white;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    &__title {
+        font-weight: 600;
+        color:rgb(86, 81, 81);
+        text-align: center;
+        flex: 1 0 100%;
+        height: 50px;
+    }
+
+    &__percent {
+        flex: 1 0 40%;
+        text-align: center;
+        font-size: 54px;
+    }
+
+    &__stats {
+        flex: 1 0 60%;
+    }
+}
+
+.stats__elem {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+
+    &>span {
+        font-size: 12px;
+    }
+}
+
+.right {
+    color: green;
+}
+
+.wrong {
+    color: red;
+}
+
+.message-elem {
+    background-color: rgb(220, 224, 228);
+    padding: 5px;
+    font-size: 14px;
+    color: black;
+    max-width: 500px;
+}
+
+.message-elem_bot {
+    margin-right: auto;
+}
+
+.message-elem_user {
+    margin-left: auto;
+}
+
+.hidden {
+    display: none;
+}
+
