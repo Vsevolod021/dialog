@@ -122,6 +122,28 @@ main {
     &__stats {
         flex: 1 0 60%;
     }
+
+    &__repeat-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1 0 100%;
+
+        &>button {
+            width: 150px;
+            height: 25px;
+            border: 1px solid rgb(178, 185, 192);
+            color: rgb(178, 185, 192);
+            border-radius: 5px;
+            background: white;
+            cursor: pointer;
+
+            &:hover {
+                color: black;
+                background-color: rgb(178, 185, 192);
+            }
+        }
+    }
 }
 
 .stats__elem {

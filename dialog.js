@@ -6,6 +6,7 @@ const inputCards = document.querySelector('.input__cards');
 const inputButton = document.querySelector('.input__button');
 const resultsStats = document.querySelector('.results__stats');
 const resultsPercent = document.querySelector('.results__percent');
+const repeatBtn = document.querySelector('.results__repeat-btn>button');
 
 let variantCardsArray = [];
 const chatHistory = [];
@@ -69,7 +70,6 @@ function renderCards() {
 }
 
 function renderPercent(quizStats) {
-    console.log(quizStats);
     let rightAnswersArray = quizStats.filter(elem => elem.isRight);
     resultsPercent.innerText = `${ (rightAnswersArray.length / quizStats.length) * 100}%`;
 }
@@ -125,6 +125,18 @@ function renderResultsWindow() {
     renderStats(quizStats);
 }
 
+function renderStartLayout() {
+    inputText.focus();
+    renderBotMessage();
+    botMessageIndex++;
+}
+
+function clearLayout() {
+    dialogWindow.innerHTML = '';
+    resultsStats.innerHTML = '';
+    resultsPercent.innerHTML = '';
+}
+
 // логика компонентов
 function toggleInput() {
     inputCards.classList.toggle('hidden');
@@ -156,7 +168,6 @@ function getQuizStats() {
         quizStats[index].isRight = ( 
             quizStats[index].givenAnswer == quizStats[index].rightAnswer 
         );
-        
     });
 
     return quizStats;
@@ -198,6 +209,12 @@ function eventListenLogic(messageText) {
     });
 }
 
+function resetData() {
+    chatHistory.splice(0);
+    messageIndex = 0;
+    botMessageIndex = 0;
+}
+
 // обработчики событий
 inputButton.addEventListener('click', () => {
     eventListenLogic(inputText.value);
@@ -216,8 +233,11 @@ inputCards.addEventListener('click', event => {
     }
 });
 
-window.onload = function() {
-    inputText.focus();
-    renderBotMessage();
-    botMessageIndex++;
-};
+repeatBtn.addEventListener('click', () => { 
+    clearLayout();
+    resetData();
+    toggleWindows();
+    renderStartLayout()
+});
+
+window.onload = renderStartLayout;

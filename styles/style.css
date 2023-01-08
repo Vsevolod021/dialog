@@ -110,6 +110,25 @@ main {
 .results__stats {
   flex: 1 0 60%;
 }
+.results__repeat-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 0 100%;
+}
+.results__repeat-btn > button {
+  width: 150px;
+  height: 25px;
+  border: 1px solid #b2b9c0;
+  color: #b2b9c0;
+  border-radius: 5px;
+  background: white;
+  cursor: pointer;
+}
+.results__repeat-btn > button:hover {
+  color: black;
+  background-color: #b2b9c0;
+}
 
 .stats__elem {
   display: flex;
